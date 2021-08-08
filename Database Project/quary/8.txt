@@ -1,0 +1,42 @@
+8.	create table Waiter_owner
+       (W_ID number(10) constraint wait_pk Primary key,
+        W_name varchar2(25), 
+        W_Phone number(11),
+        salary number(4,3),
+        O_ID number(10) constraint wait_fk references owner(o_id))
+
+
+9.	create table shop 
+       (s_id number(10) constraint shop_pk primary key,
+        s_add varchar2(25))
+10. create table owner_shop 
+      (O_ID number(10) constraint Ownshop_pk primary key,
+       O_Phone number(11), 
+       s_id number(10) constraint ownshop_fk references shop(s_id))
+
+
+11.	create table Area 
+       (a_id number(10) constraint area_pk primary key,
+        city varchar2(25),
+        country varchar2(25))
+12. create table Customer 
+       (c_id number(10) constraint customer_pk primary key,
+        C_name varchar2(25),
+        c_add varchar2(25),
+         c_phone number(11),
+         i_name varchar2(25) constraint customer_fk references Ice_cream(i_name))
+13.	create table bill 
+       (b_number number(10) constraint bill_pk primary key,
+        amount number(5),
+        time number(4,2),
+         c_id number(10) constraint bill_fk references customer(c_id))
+14.	create table cashier  
+      (ca_id number(10) constraint cashier_pk primary key,
+      ca_name varchar2(25))
+15.	create table cashier_bill  
+       (b_NUMBER number(10) constraint cashbill_pk primary key,
+        amount number(5),
+        time number(4,2),
+        ca_id number(10) constraint cashier_Fk  references cashier(ca_id))
+
+
